@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: BookMyTicket
+    
+
+  cloud:
+    compatibility-verifier:
+      enabled: false
+  boot:
+    admin:
+      client:
+        url: http://localhost:9080
+  security:
+    user:
+      name: admin
+      password: 13321332
+          
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
+        
+        
+        
+        
+        

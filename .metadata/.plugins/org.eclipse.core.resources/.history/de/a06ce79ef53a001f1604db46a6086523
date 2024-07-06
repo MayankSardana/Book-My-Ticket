@@ -1,0 +1,5 @@
+package in.book.configuration;
+
+public class BookConfiguration {
+
+}

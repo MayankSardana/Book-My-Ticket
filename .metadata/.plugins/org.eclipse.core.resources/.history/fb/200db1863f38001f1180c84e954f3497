@@ -1,0 +1,5 @@
+package in.book.service;
+
+public class BookServiceImpl {
+
+}

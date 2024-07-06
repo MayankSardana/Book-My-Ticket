@@ -1,0 +1,20 @@
+package in.book.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class ExceptionRestController {
+     
+	  @ExceptionHandler(value = Exception.class)
+	  public ResponseEntity<String> handle() {
+		    StringBuilder str = new StringBuilder("");
+		    str.append("ERROR 404 Page");
+		    str.append("Back to Home Page");
+		    str.append("<a href = 'http://localhost:8080'>Home</a>");
+		    return new ResponseEntity<>(str.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+	  }
+	
+}

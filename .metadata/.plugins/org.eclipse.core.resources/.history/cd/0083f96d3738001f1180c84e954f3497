@@ -1,0 +1,45 @@
+package in.book.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import in.book.binding.Person;
+
+@Controller
+public class BookController 
+{ 
+	
+     public String load() {
+    	 return "index";
+     }
+     
+     @GetMapping("/book")
+     public String BookTicket(Model model) {
+    	 model.addAttribute("person", new Person());
+    	 return "Book";
+     }
+     
+     @PostMapping("/saveTicket")
+     public String bookTicket(@ModelAttribute("person") Person p) {
+    	 return "Book";
+     }
+     
+     @GetMapping("/view")
+     public String ViewTicket() {
+    	 return "Ticket";
+     }
+     
+     @GetMapping("/ticket")
+     public String TicketNumber() { 
+    	 return "Number";
+     }
+     
+     @GetMapping("/price")
+     public String Price() {
+    	 return "Price";
+     }
+     
+}

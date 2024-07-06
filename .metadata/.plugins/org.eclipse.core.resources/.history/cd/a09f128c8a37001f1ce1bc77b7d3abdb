@@ -1,0 +1,20 @@
+package in.api.runner;
+
+import java.util.HashMap;
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+
+public class Runner implements ApplicationRunner
+{
+ 
+	HashMap<String , Integer> map;
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+         map = new HashMap<>();
+         map.put("Chandigarh", 10);
+         map.put("Mohali", 10);
+         map.put("Patiala", 20);
+	}
+     
+}

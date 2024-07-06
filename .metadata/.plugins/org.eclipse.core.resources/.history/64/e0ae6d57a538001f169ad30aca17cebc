@@ -1,0 +1,76 @@
+package in.book.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import in.book.binding.Person;
+import in.book.binding.Ticket;
+import in.book.binding.TicketView;
+import in.book.service.BookService;
+
+@Controller
+public class BookController 
+{ 
+	@Autowired
+	private BookService service;
+	
+     public String load() {
+    	 return "index";
+     }
+     
+     @GetMapping("/book")
+     public String BookTicket(Model model) {
+    	 model.addAttribute("person", new Person());
+    	 return "Book";
+     }
+     
+     @PostMapping("/saveTicket")
+     public String bookTicket(@ModelAttribute("person") Person p , Model model) {
+    	 Ticket tt = service.saveTicket(p);
+    	 model.addAttribute("ticket",tt);
+    	 model.addAttribute("msg", "Ticket Booked");
+    	 model.addAttribute("person", new Person());
+    	 return "Book";
+     }
+     
+     @GetMapping("/cancel")
+     public String Cancel(Model model) {
+//    	 model.addAttribute("view" ,new TicketView());
+    	 return "redirect:/view";
+     }
+     
+     @GetMapping("/edit")
+     public String EditTicket() {
+    	 return "redirect:/view";
+     }
+     
+     @GetMapping("/view")
+     public String ViewTicket(Model model) {
+    	 model.addAttribute("view", new TicketView());
+    	 return "Ticket";
+     }
+     
+     @PostMapping("/viewticket")
+     public String ViewSaveTicket(@ModelAttribute("view") TicketView v , Model model) {
+    	 Ticket t = service.getTicket(v.getTicketnumber());
+    	 model.addAttribute("ticket" , t);
+    	 return "Ticket";
+     }
+     
+     @GetMapping("/ticket")
+     public String TicketNumber(Model model) {
+    	 model.addAttribute("number", new in.book.binding.TicketNumber());
+    	 return "Number";
+     }
+     
+     @PostMapping("/getticket")
+     public String GetTicketNumber(@ModelAttribute("number") in.book.binding.TicketNumber number) { 
+    	 return "Number";
+     }
+     
+    
+}

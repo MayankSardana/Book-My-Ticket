@@ -1,0 +1,14 @@
+package in.api.service;
+
+
+import in.api.entity.Person;
+import in.api.entity.Ticket;
+
+
+public interface ApiService {
+	
+     public Ticket saveTicket(Person p);
+     
+     public Ticket getTicket(String ticketNumber);
+     
+}

@@ -1,0 +1,31 @@
+package in.book.service;
+
+import org.springframework.stereotype.Service;
+
+import in.book.binding.Person;
+import in.book.binding.Ticket;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+	private String urlget = "http://localhost:5000/ticket/{ticketnum}";
+	private String urlsave = "";
+	@Override
+	public Ticket saveTicket(Person p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ticket getTicket(String ticketNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getNumber(Integer aadhar) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
